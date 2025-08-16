@@ -1,0 +1,64 @@
+body {
+    background-image: url('path/to/your/watermark.png'); /* Ganti dengan path watermark */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+}
+.navbar-dark .navbar-brand {
+    color: #ffffff;
+}
+.hero-image {
+    background-image: url('path/to/your/image.jpg'); /* Ganti dengan path foto hero */
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    border-radius: 0.5rem;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-blend-mode: darken;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+.hero-image .display-4 {
+    font-size: 3rem;
+}
+.hero-image .lead {
+    font-size: 1.5rem;
+}
+.btn-custom {
+    margin: 5px;
+    font-size: 1.2rem;
+}
+.container {
+    background-color: rgba(255, 255, 255, 0.8); /* Background putih semi-transparan untuk konten */
+    padding: 20px;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Additional styles for responsiveness */
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1rem;
+    }
+    .hero-image .display-4 {
+        font-size: 2rem;
+    }
+    .hero-image .lead {
+        font-size: 1rem;
+    }
+    .btn-custom {
+        font-size: 1rem;
+    }
+}
+
+/* Additional styles for charts */
+.chart-container {
+    width: 100%;
+    margin: 20px 0;
+}

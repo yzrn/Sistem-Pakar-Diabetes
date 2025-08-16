@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="{{ url_for('static', filename='LG.png') }}" alt="Logo" style="width: 150px; height: auto;">
+                Home
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Mulai Diagnosis
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="{{ url_for('diagnose') }}">Analisis Gejala</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('leb') }}">Analisis Hasil Lab</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Pilihan Lainnya
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="{{ url_for('disease_list') }}">Daftar Gejala</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('diagnosis_history') }}">Riwayat Diagnosis</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('user_guide') }}">Panduan Pengguna</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="{{ url_for('logout') }}">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Cari" aria-label="Search">
+                    <button class="btn btn-outline-light" type="submit">Cari</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Teks Berjalan -->
+    <div class="bg-light text-black text-center py-2">
+        <marquee behavior="scroll" direction="left">
+            Selamat Datang di Sistem Pakar Diagnosis Diabetes Menggunakan Metode SVM - Created by Yusran Hi Yunus NPM 121055520120021
+        </marquee>
+    </div>
+    
+    <!-- Hero Section -->
+    <div class="hero-image text-center p-5 rounded shadow-lg">
+        <h1 class="display-4">Selamat Datang di Website Cek Diabetes</h1>
+        <p class="lead">Sistem pakar diagnosa diabetes metode SVM</p>
+        <button class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#infoModal">Informasi Penting</button> 
+    </div>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="infoModalLabel">Informasi Penting</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Website cek diabetes adalah platform yang dirancang untuk membantu pengguna dalam mendiagnosis risiko diabetes berdasarkan gejala dan hasil tes laboratorium. 
+                    Dengan menggunakan algoritma Support Vector Machine (SVM), website ini menyediakan analisis prediktif yang akurat,
+                    serta fitur riwayat diagnosa untuk melacak hasil pemeriksaan sebelumnya. Selain itu, 
+                    pengguna dapat mengakses panduan penggunaan dan daftar penyakit terkait diabetes untuk meningkatkan pemahaman mereka tentang kondisi ini. 
+                    Website ini juga dilengkapi dengan sistem login yang aman untuk menjaga privasi data pengguna..
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                    <button type="button" class="btn btn-primary">Simpan Perubahan</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Content Section -->
+    <div id="photoCarousel" class="carousel slide my-5" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{{ url_for('static', filename='diabets.jpg') }}" class="d-block w-50 mx-auto rounded">
+            </div>
+            <div class="carousel-item">
+                <img src="{{ url_for('static', filename='STOPDB.jpg') }}" class="d-block w-50 mx-auto rounded">
+            </div>
+            <div class="carousel-item">
+                <img src="{{ url_for('static', filename='DM.jpg') }}" class="d-block w-50 mx-auto rounded">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#photoCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#photoCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2024 Sistem Pakar Diagnosa Diabetes. All rights reserved.</p>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
